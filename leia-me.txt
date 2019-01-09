@@ -1,0 +1,7 @@
+Banco: base.sql
+Acesso app: http://127.0.0.1/SuperoTeste/
+
+Utilizado o composer juntamente com o framework Silex
+
+https://getcomposer.org/
+https://silex.symfony.com/

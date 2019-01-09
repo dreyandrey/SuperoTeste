@@ -1,0 +1,46 @@
+<div class="row marketing">
+  <div class="col-sm-5">
+    <h3>TaskList <button type="button" class="btn btn-primary btn-sm pull-right btn-new-product" ng-click="vm.creationNewProduct()">Nova Task</button></h3>
+    <ul class="list-unstyled">
+      <li ng-repeat="product in vm.products">
+        <div class="checkbox">
+          <label class="center-block">
+            <input type="checkbox" ng-model="product.status" ng-true-value="1" ng-false-value="0">
+            <span class="clearfix center-block">{{product.nm_product}}<button class="btn btn-default btn-xs pull-right" ng-click="vm.editProduct(product)">Editar</button></span>
+            <p class="text-muted clearfix" ng-if="product.ds_product"><small class="pull-left">{{product.ds_product}}</small> <time class="pull-right">{{vm.formatDate(product.dt_creation) | date : 'dd/MM/yyyy HH:mm:ss'}}</time></p>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-7">
+    <h3>{{vm.product.cd_product ? 'Editar uma task' : 'Criar uma task'}}</h3>
+    <div class="panel panel-default">
+      <form ng-submit="vm.saveProduct()">
+        <div class="panel-heading text-muted text-right" ng-if="vm.product.dt_creation">
+          <small>Criado em: {{vm.formatDate(vm.product.dt_creation) | date: 'dd/MM/yyyy HH:mm:ss'}}</small>
+          <div ng-show="vm.product.dt_alteration"><small>Última atualização em: {{vm.formatDate(vm.product.dt_alteration) | date: 'dd/MM/yyyy HH:mm:ss'}}</small></div>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Informe um título para a tarefa" ng-model="vm.product.nm_product" required>
+          </div>
+          <div class="form-group">
+            <label for="descricao">Descrição (opcional)</label>
+            <textarea class="form-control" id="descricao" name="descricao" rows="3" placeholder="Informe detalhes sobre a tarefa" ng-model="vm.product.ds_product"></textarea>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="vm.product.status" ng-true-value="1" ng-false-value="0"> Status ativo?
+            </label>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-success">{{vm.product.cd_product ? 'Salvar task' : 'Criar task'}}</button>
+          <button type="button" class="btn btn-link" ng-if="vm.product.cd_product" ng-click="vm.deleteProduct(vm.product.cd_product)">Excluir task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
