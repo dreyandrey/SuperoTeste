@@ -31,8 +31,7 @@
       <li ng-repeat="product in vm.products">
         <div class="checkbox">
           <label class="center-block">
-            <input type="checkbox" ng-model="product.status" ng-true-value="1" ng-false-value="0">
-            <span class="clearfix center-block">{{product.nm_product}}<button class="btn btn-default btn-xs pull-right" ng-click="vm.editProduct(product)">Editar</button></span>
+            <span class="clearfix center-block">{{product.nm_product}}<a class="pull-right" ng-click="vm.editProduct(product)">Editar</a></span>
             <p class="text-muted clearfix" ng-if="product.ds_product"><small class="pull-left">{{product.ds_product}}</small></p>
           </label>
         </div>
