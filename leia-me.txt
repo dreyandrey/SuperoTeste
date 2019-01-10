@@ -1,4 +1,4 @@
-Banco: base.sql
+Banco: base_mysql.sql
 Acesso app: http://127.0.0.1/SuperoTeste/
 
 Utilizado o composer juntamente com o framework Silex
