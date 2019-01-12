@@ -1,0 +1,4 @@
+Banco: base_mysql.sql
+Acesso app: http://localhost:8080/WebServiceRest/#!/home
+
+Utilizado o Web Service Rest com Jersey e JPA
